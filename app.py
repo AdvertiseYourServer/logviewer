@@ -1,6 +1,7 @@
 __version__ = "1.1"
 
 import os
+from dotenv import load_dotenv
 
 from motor.motor_asyncio import AsyncIOMotorClient
 from sanic import Sanic, response
@@ -9,6 +10,7 @@ from jinja2 import Environment, FileSystemLoader
 
 from core.models import LogEntry
 
+load_dotenv()
 
 if "URL_PREFIX" in os.environ:
     print("Using the legacy config var `URL_PREFIX`, rename it to `LOG_URL_PREFIX`")
